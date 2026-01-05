@@ -28,18 +28,15 @@ if (!dbUrl) {
   process.exit(1);
 }
 
-main()
+mongoose
+  .connect(dbUrl)
   .then(() => {
     console.log("connected to DB");
   })
   .catch((err) => {
-    console.log(err);
+    console.error("Mongo connection error:", err);
   });
-
-async function main() {
-  await mongoose.connect(dbUrl);
-}
-
+  
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(express.urlencoded({ extended: true }));

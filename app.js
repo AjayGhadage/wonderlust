@@ -1,3 +1,5 @@
+
+console.log("🔥 APP.JS STARTING 🔥");
 require("dotenv").config();
 // console.log(process.env.SECRET);
 
@@ -36,7 +38,7 @@ mongoose
   .catch((err) => {
     console.error("Mongo connection error:", err);
   });
-  
+
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(express.urlencoded({ extended: true }));

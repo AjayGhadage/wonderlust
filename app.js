@@ -58,11 +58,14 @@ store.on("error", (err) => {
 
 
 
+
 const sessionOptions = {
   store,
   secret: process.env.SECRET,
   resave: false,
   saveUninitialized: false,
+  proxy: true, // Required for secure cookies on Render
+
   cookie: {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
